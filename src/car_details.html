@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Car Details - SpeedStar Motors</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+    }
+    header {
+      background-color: #1e1e1e;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav a {
+      color: white;
+      margin-left: 1.5rem;
+      text-decoration: none;
+    }
+    .car-details {
+      max-width: 800px;
+      margin: 2rem auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .carousel img {
+      width: 100%;
+      border-radius: 4px;
+    }
+    .video-tour iframe {
+      width: 100%;
+      max-width: 560px;
+      height: 315px;
+      margin: 1rem auto;
+      display: block;
+    }
+    .inquiry-form {
+      margin-top: 1.5rem;
+    }
+    .inquiry-form label {
+      display: block;
+      margin-top: 0.5rem;
+    }
+    .inquiry-form input, .inquiry-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+    .inquiry-form button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: #1e1e1e;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>SpeedStar Motors</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="index.html#inventory">Inventory</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section class="car-details">
+    <style>
+      .image-gallery {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+        margin: 1rem 0;
+      }
+      .image-gallery img {
+        cursor: pointer;
+        width: 100px;
+        height: auto;
+        border-radius: 4px;
+        border: 2px solid transparent;
+      }
+      .image-gallery img:hover {
+        border-color: #007BFF;
+      }
+      .main-image {
+        width: 100%;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+      }
+    </style>
+    <h2>2023 Tesla Model S</h2>
+    <img class="main-image" id="mainCarImage" src="https://tse3.mm.bing.net/th/id/OIP.HanzLhnQIwCiKVLAFzKiuAHaDe?pid=Api" alt="Tesla Model S">
+    <div class="image-gallery">
+      <img src="https://tse3.mm.bing.net/th/id/OIP.HanzLhnQIwCiKVLAFzKiuAHaDe?pid=Api" onclick="document.getElementById('mainCarImage').src=this.src" alt="Tesla Front View">
+      <img src="https://tse2.mm.bing.net/th/id/OIP.a34UxXg5qP_iHzrqIfW12QHaE8?pid=Api" onclick="document.getElementById('mainCarImage').src=this.src" alt="Tesla Rear View">
+      <img src="https://tse4.mm.bing.net/th/id/OIP.3SHS2OctGUU-9XqQFN-FyQHaFc?pid=Api" onclick="document.getElementById('mainCarImage').src=this.src" alt="Tesla Side View">
+    </div>
+    <p><strong>Price:</strong> £89,990</p>
+    <p>The 2023 Tesla Model S is the pinnacle of electric luxury sedans. Combining performance, technology, and style, it features a long-range battery, cutting-edge autopilot capabilities, and a sleek, minimalistic interior. Perfect for those who want zero-emissions driving without compromising on comfort or speed.</p>
+
+    <div class="video-tour">
+      <iframe src="https://www.youtube.com/embed/tw4jkyfY4HE" frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <form class="inquiry-form">
+      <h3>Enquire about this car</h3>
+      <label>Name: <input type="text" name="name" required></label>
+      <label>Email: <input type="email" name="email" required></label>
+      <label>Message: <textarea name="message" required></textarea></label>
+      <input type="hidden" name="car" value="2023 Tesla Model S">
+      <button type="submit">Submit</button>
+    </form>
+  </section>
+
+  <footer>
+    &copy; 2025 SpeedStar Motors. All rights reserved.
+  </footer>
+</body>
+</html>
