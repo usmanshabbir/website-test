@@ -71,6 +71,27 @@
       color: white;
       margin-top: 2rem;
     }
+    .image-gallery {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 1rem 0;
+    }
+    .image-gallery img {
+      cursor: pointer;
+      width: 100px;
+      height: auto;
+      border-radius: 4px;
+      border: 2px solid transparent;
+    }
+    .image-gallery img:hover {
+      border-color: #007BFF;
+    }
+    .main-image {
+      width: 100%;
+      border-radius: 4px;
+      margin-bottom: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -82,29 +103,6 @@
   </header>
 
   <section class="car-details">
-    <style>
-      .image-gallery {
-        display: flex;
-        gap: 1rem;
-        flex-wrap: wrap;
-        margin: 1rem 0;
-      }
-      .image-gallery img {
-        cursor: pointer;
-        width: 100px;
-        height: auto;
-        border-radius: 4px;
-        border: 2px solid transparent;
-      }
-      .image-gallery img:hover {
-        border-color: #007BFF;
-      }
-      .main-image {
-        width: 100%;
-        border-radius: 4px;
-        margin-bottom: 1rem;
-      }
-    </style>
     <h2>2022 BMW X2</h2>
     <img class="main-image" id="mainCarImage" src="images/bmw-1.jpeg" alt="Local Car Image">
     <div class="image-gallery">
@@ -125,7 +123,6 @@
       <img src="images/bmw-15.jpeg" onclick="document.getElementById('mainCarImage').src=this.src" alt="BMW Golden">
       <img src="images/bmw-16.jpeg" onclick="document.getElementById('mainCarImage').src=this.src" alt="BMW Golden">
       <img src="images/bmw-17.jpeg" onclick="document.getElementById('mainCarImage').src=this.src" alt="BMW Golden">
-      
     </div>
     <p><strong>Price:</strong> £89,990</p>
     <p>The 2023 Tesla Model S is the pinnacle of electric luxury sedans. Combining performance, technology, and style, it features a long-range battery, cutting-edge autopilot capabilities, and a sleek, minimalistic interior. Perfect for those who want zero-emissions driving without compromising on comfort or speed.</p>
@@ -147,5 +144,32 @@
   <footer>
     &copy; 2025 SpeedStar Motors. All rights reserved.
   </footer>
+
+  <script>
+    const galleryImages = Array.from(document.querySelectorAll('.image-gallery img'));
+    const mainImage = document.getElementById('mainCarImage');
+    let currentIndex = 0;
+
+    function updateMainImage(index) {
+      if (index >= 0 && index < galleryImages.length) {
+        currentIndex = index;
+        mainImage.src = galleryImages[currentIndex].src;
+      }
+    }
+
+    galleryImages.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+      });
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') {
+        updateMainImage((currentIndex + 1) % galleryImages.length);
+      } else if (event.key === 'ArrowLeft') {
+        updateMainImage((currentIndex - 1 + galleryImages.length) % galleryImages.length);
+      }
+    });
+  </script>
 </body>
 </html>
